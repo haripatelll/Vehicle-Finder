@@ -1,3 +1,3 @@
 # Vehicle-Finder
 
-Scroll to the bottom of the file and choose the three functions and put commands for outputs
+To use this useful Vehicle finder open Vechicle finder and type in what you need :)
