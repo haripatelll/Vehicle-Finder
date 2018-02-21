@@ -1,0 +1,68 @@
+;; Information on Vechicles
+;; Last update: January 5th 2018
+
+;; By: Harish Patel
+#lang racket
+
+;; Here is the list of manufacturing companies' countries
+(define manufactures
+  '(American
+    ("Chevrolet" "Dodge" "Ford" "Jeep" "Buick" "Lincoln" "Tesla" "Chrysler" "Tesla")
+    British
+    ("Jaguar" "Land-Rover" "Bentley" "Rolls-Royce" "Aston-Martin" "Lotus" "Mclaren")
+    French
+    ("Bugatti")
+    German
+    ("Volkswagen" "Audi" "BMW" "Mercedes-Benz" "Porsche")
+    Italian
+    ("Alfa-Romeo" "Maserati" "Ferrari" "Lamborghini" "Pagani" "FIAT")
+    Japanese
+    ("Honda" "Mazda" "Nissan" "Subaru" "Toyota" "Acura" "Intiniti" "Lexus")
+    Korean
+    ("Hyundai" "Kia")
+    Swedish
+    ("Koenigsegg" "Volvo")))
+                                                                 
+                                
+;; Company List to select from
+(define companies
+  '(American British French German Italian Japanese Korean Swedish))
+
+
+;; Helper function for outputing the list of car brands
+(define (help-carmaker company manufactures)
+  (cond
+    [(empty? manufactures) empty]
+    [(equal? (first manufactures) company)
+     (first (rest manufactures))]
+    [else (help-carmaker company (rest manufactures))]))
+
+
+
+;; Here is the list of car companies luxary levels
+(define luxary-brand
+  '(Standard
+    ("Chevrolet" "Dodge" "FIAT" "Ford" "Honda" "Hyundai" "Jeep" "Kia"
+                 "Mazda" "Nissan" "Subaru" "Toyota" "Volkswagen")
+    Entry
+    ("Volvo" "Lincoln" "Lexus" "Infiniti" "Chrysler" "Cadillac" "Buick" "Acura")
+    High-end
+    ("Alfa Romeo" "Audi" "BMW" "Jaguar" "Land Rover" "Maserati" "Mercedes-Benz" "Porsche" "Tesla")
+    Ultra-luxary
+    ("Bentley" "Rolls-Royce")
+    Exotic
+    ("Bentley" "Rolls-Royce" "Aston Martin" "Bugatti" "Ferrari" "Koenigsegg" "Lamborghini" "Lotus" "McLaren" "Pagani")))
+
+
+;; Luxary Levels to select from
+(define levels
+  '(Standard Entry High-end Ultra-luxary Exotic))
+
+
+;; Helper function for outputing the cars associated with the luxary levels
+(define (help-luxary level luxary-brand)
+  (cond
+    [(empty? luxary-brand) empty]
+    [(equal? (first luxary-brand) level)
+     (first (rest luxary-brand))]
+    [else (help-luxary level (rest luxary-brand))]))
